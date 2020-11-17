@@ -32,6 +32,14 @@ public class Square
      * Constructor for objects of class Square
      * @param row col type
      */
+    public Square(int row1, int col1, int type1){
+        row = row1;
+        col = col1;
+        type = type1;
+    
+    
+    }
+    
 
 
     /**
@@ -39,20 +47,27 @@ public class Square
      *
      * @return    this square's row
      */
-
+    public int getRow(){
+        return row;
+    }
 
     /**
      * Returns this square's column
      *
      * @return    this square's column
      */
-
+    public int getCol(){
+        return col;
+    }
 
     /**
      * Returns this square's type
      *
      * @return    this square's type
      */
+    public int getType(){
+        return type;
+    }
 
 
     /**
@@ -78,12 +93,21 @@ public class Square
      * Sets the square's state to the specified state
      *
      */
+    public void setState(State newState){
+        state = newState;
+    }
 
 
     /**
      * Resets this square
      *
      */
+    
+    public void reset(){
+        state = State.UNEXPLORED;
+    }
+    
+    
 
     /**
      * toString method
@@ -91,6 +115,16 @@ public class Square
      * @return    string representation of the square
      * _, o, ., x, #, S, E
      */
-
+    public String toString(){
+        if (state.equals(State.UNEXPLORED))    
+            return "_";
+        else if (state.equals(State.ON_WORK_LIST))
+            return "o";
+        else if (state.equals(State.EXPLORED))
+            return ".";
+        else 
+            return "x";
+    
+    }
 
 }

@@ -13,7 +13,10 @@ import java.util.ArrayList;
 public class Maze
 {
     private Square[][] maze;
-
+    private Square start;
+    private Square end;
+    private String fname;
+    
     /**
      * Constructor for objects of class Maze
      */
@@ -27,16 +30,37 @@ public class Maze
      * @param  fname  the name of the file containing the maze to be loaded
      * @return    true if the maze was successfully loaded; otherwise, false
      */
-    public boolean loadMaze( String fname )
+    public boolean loadMaze( String fnameIn )
     {
-        int numRows = 0;
-        int numCols = 0;
+        fname = fnameIn;
+        
+        try{
         File mazeFile = new File( fname );
-        Scanner in = null;
-
-        try
-        {
-
+        Scanner in = new Scanner(mazeFile);
+        String[] rowArr = in.nextLine().split(" ");
+        int numRows = Integer.parseInt(rowArr[0]);
+        int numCols = Integer.parseInt(rowArr[1]);
+        
+         this.maze = new Square[numRows][numCols];
+         for (int row=0; row < numRows; row++) {
+             rowArr = in.nextLine().split(" ");
+             for (int col=0; col < numCols; col++) {
+                 int type = Integer.parseInt(rowArr[col]);
+                 maze[row][col] = new Square(row, col, type);
+                 if (type == 2){
+                    start = maze[row][col];
+                    }
+                 else if (type == 3){
+                    end = maze[row][col];
+                    }
+                }
+            }
+        }
+        catch(Exception e) {
+            return false;
+        
+       }
+       return true;
     }
 
     /**
@@ -47,7 +71,22 @@ public class Maze
      */
     public ArrayList<Square> getNeighbors( Square sq )
     {
-
+        ArrayList<Square> neighbors = new ArrayList<Square>();
+        int r = sq.getRow();
+        int c = sq.getCol();
+        if (r > 0){
+            neighbors.add(maze[r-1][c]);
+        }
+        if (r < maze.length){
+            neighbors.add(maze[r+1][c]);
+        }
+        if (c > 0){
+            neighbors.add(maze[r][c-1]);
+        }
+        if (r > maze[0].length){
+            neighbors.add(maze[r][c+1]);
+        }
+        return neighbors;
     }
 
     /**
@@ -55,6 +94,10 @@ public class Maze
      *
      * @return    the start square
      */
+    
+    Square getStart(){
+        return start;
+    }
 
 
     /**
@@ -62,12 +105,20 @@ public class Maze
      *
      * @return    the finish square
      */
+    
+    Square getEnd(){
+        return end;
+    }
 
 
     /**
      * Returns the maze back to the initial state after loading.
      *
      */
+    
+    public void reset(){
+        loadMaze;
+    }
 
 
     /**
