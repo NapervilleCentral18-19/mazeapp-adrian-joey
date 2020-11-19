@@ -36,7 +36,8 @@ public class Square
         row = row1;
         col = col1;
         type = type1;
-    
+        
+        state = State.UNEXPLORED;
     
     }
     

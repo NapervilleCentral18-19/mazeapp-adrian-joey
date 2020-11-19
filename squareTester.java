@@ -13,6 +13,6 @@ public class squareTester
     public static void main(String[] args)
     {
         Square sq = new Square(3, 3, 3);
-        sq.toString();
+        System.out.println(sq.toString());
     }
 }
