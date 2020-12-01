@@ -10,6 +10,7 @@ public abstract class MazeSolver
 {
     // instance variables - replace the example below with your own
     protected Maze maze;
+    private Square end;
     boolean foundExit;
 
     /**
@@ -20,7 +21,6 @@ public abstract class MazeSolver
     MazeSolver(Maze maze)
     {
         this.maze = maze;
-        this.foundExit = false;
         this.makeEmpty();
         this.add( this.maze.getStart() );
     }
@@ -58,7 +58,12 @@ public abstract class MazeSolver
      *
      *  @return if the maze is solved
      */
-
+    boolean isSolved(){
+    if (end != null){
+        return true;
+    }
+    return false;
+    }
 
 
 
@@ -72,11 +77,19 @@ public abstract class MazeSolver
     public String getPath()
     {
         String path = "";
-
-
-
+        Square current = end;
+        if (end == null)
+            return "no path";
+        
+        while(current.getType() != 2){
+             path = " [" + current.getCol() + " , " + current.getRow() + " ]" + path;
+             current = current.getPrev();
+            }
         return path;
+    
+    
     }
+ 
 
     /**
      * Perform one iteration of the algorithm above (i.e., steps 1 through 5) and
@@ -87,18 +100,48 @@ public abstract class MazeSolver
     public Square step()
     {
         // check if the maze cannot be solved
-        if( this.isEmpty() )
+        if(this.isEmpty() )
         {
             return null;
         }
-
-
-        return square;
+        
+        Square next = next();
+        next.setState(Square.State.EXPLORED);
+        
+        if (next.getType() == 3){
+            this.foundExit = true;
+            end = next;
+            System.out.println(this.getPath());
+            return next;
+            
+        }
+        
+        else {
+        ArrayList<Square> neighbors = maze.getNeighbors(next);
+        for (Square sq : neighbors){
+            if (sq.getType() == 0 && sq.getState().equals(Square.State.UNEXPLORED)){
+            sq.setState(Square.State.ON_WORK_LIST);
+            sq.setPrev(next);
+            add(sq);
+            }
+        }
+        
+        
+        }
+        return next;
     }
 
     /**
      * Repeatedly calls step() until you get to the exit square or the worklist is empty.
      *
      */
-
+    public void solve(){
+        this.foundExit = false;
+        this.makeEmpty();
+        this.add(this.maze.getStart());
+        while (! this.isSolved()){
+            this.step();
+        }
+        
+    }
 }

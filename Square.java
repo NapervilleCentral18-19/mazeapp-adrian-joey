@@ -80,6 +80,17 @@ public class Square
     {
         return this.prev;
     }
+    
+    
+    /**
+     * Returns this square's state
+     *
+     * @return    this square's previous square
+     */
+    public State getState()
+    {
+        return this.state;
+    }
 
     /**
      * Sets the previous square to the specified square
