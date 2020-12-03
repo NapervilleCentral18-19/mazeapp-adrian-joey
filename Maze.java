@@ -77,13 +77,13 @@ public class Maze
         if (r > 0){
             neighbors.add(maze[r-1][c]);
         }
-        if (r < maze.length){
+        if (r < maze.length - 1){
             neighbors.add(maze[r+1][c]);
         }
         if (c > 0){
             neighbors.add(maze[r][c-1]);
         }
-        if (r > maze[0].length){
+        if (c < maze[0].length - 1){
             neighbors.add(maze[r][c+1]);
         }
         return neighbors;

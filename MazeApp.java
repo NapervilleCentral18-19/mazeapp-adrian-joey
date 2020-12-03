@@ -16,10 +16,10 @@ import javax.swing.filechooser.FileFilter;
 public class MazeApp extends JFrame implements ActionListener {
     
     // Initial font size for the display
-    private static int fontSize = 16;
+    private static int fontSize = 32;
 
     // Initial interval between animation in milliseconds
-    private static int timerInterval = 500; 
+    private static int timerInterval = 100; 
     
     private static final long serialVersionUID = 6228378229836664288L;
 
@@ -291,7 +291,7 @@ public class MazeApp extends JFrame implements ActionListener {
     private void makeNewSolver() {
 	String oldType = solverType.getText();
 	if (oldType.equalsIgnoreCase("queue")) {
-	    solver = new MazeSolverStack(this.maze);
+	    solver = new MazeSolverQueue(this.maze);
 	} else if (oldType.equalsIgnoreCase("stack")) {
 	    solver = new MazeSolverStack(this.maze);
 	} else

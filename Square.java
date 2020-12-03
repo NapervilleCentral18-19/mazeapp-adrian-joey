@@ -128,12 +128,18 @@ public class Square
      * _, o, ., x, #, S, E
      */
     public String toString(){
-        if (state.equals(State.UNEXPLORED))    
+        if (getType() == 1)
+            return "#"; //Wall
+        else if (getType() == 2)
+            return "S";
+        if (getType() == 3)
+            return "E";
+        else if (state.equals(State.UNEXPLORED))    
             return "_";
         else if (state.equals(State.ON_WORK_LIST))
             return "o";
         else if (state.equals(State.EXPLORED))
-            return ".";
+            return ". ";
         else 
             return "x";
     

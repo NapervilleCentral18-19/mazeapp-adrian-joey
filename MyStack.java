@@ -92,7 +92,8 @@ public class MyStack<T> implements StackADT<T>
     public String toString()
     {
         String str = "[";
-
+        for(T t:stack)
+            str += t + ", ";
         str += "]";
 
         return str;

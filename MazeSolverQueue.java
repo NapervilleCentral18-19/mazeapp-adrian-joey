@@ -1,20 +1,20 @@
 
 /**
- * Write a description of class MazeSolverStack here.
+ * Write a description of class MazeSolverQueue here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class MazeSolverStack extends MazeSolver
+public class MazeSolverQueue extends MazeSolver
 {
-    MyStack stack;
+    MyQueue queue;
 
     /**
      * Constructor
      *
      *  @param maze the maze to solve
      */
-    public MazeSolverStack(Maze maze)
+    public MazeSolverQueue(Maze maze)
     {
         super(maze);
     }
@@ -25,7 +25,7 @@ public class MazeSolverStack extends MazeSolver
      */
     public void makeEmpty()
     {
-        stack = new MyStack();
+        queue = new MyQueue();
     }
     
     /**
@@ -35,7 +35,7 @@ public class MazeSolverStack extends MazeSolver
      */
     public boolean isEmpty()
     {
-        return stack.isEmpty();
+        return queue.isEmpty();
     }
     
     /**
@@ -47,7 +47,7 @@ public class MazeSolverStack extends MazeSolver
     {
         System.out.println("here");
         System.out.println(sq);
-        stack.push(sq);
+        queue.enqueue(sq);
     }
     
     /**
@@ -57,7 +57,7 @@ public class MazeSolverStack extends MazeSolver
      */
     public Square next()
     {
-        System.out.println(stack);
-        return (Square) stack.pop();
+        System.out.println(queue);
+        return (Square) queue.dequeue();
 }
 }
