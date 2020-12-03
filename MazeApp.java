@@ -47,7 +47,7 @@ public class MazeApp extends JFrame implements ActionListener {
      */
     public MazeApp() {
 	// Set up the frame
-	super("Amazing Maze Solver");
+	super("aMaZiNG MaZe SoLVeR");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	// Field for the maze file name
@@ -65,11 +65,11 @@ public class MazeApp extends JFrame implements ActionListener {
 	filenamePanel.add(filename, "Center");
 	
 	JPanel fontPanel = new JPanel(new BorderLayout());
-	fontPanel.add(new JLabel("Font size:"), "West");
+	fontPanel.add(new JLabel("Font size (doesn't work either):"), "West");
 	fontPanel.add(fontField, "Center");
 	
 	JPanel timerPanel = new JPanel(new BorderLayout());
-	timerPanel.add(new JLabel("Timer (ms):"), "West");
+	timerPanel.add(new JLabel("Timer (ms, doesn't work):"), "West");
 	timerPanel.add(timerField, "Center");
 	
 	JPanel controls = new JPanel(new FlowLayout());
