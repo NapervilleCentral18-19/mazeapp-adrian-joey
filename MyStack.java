@@ -4,7 +4,7 @@ import java.util.NoSuchElementException;
 /**
  * Implementation of a stack
  *
- * @author
+ * @Adrian Tse, Joey Rubas
  * @version 1
  */
 public class MyStack<T> implements StackADT<T>
