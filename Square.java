@@ -2,7 +2,7 @@
 /**
  * Represents a single square in the maze.
  *
- * @author gcschmit
+ * @author gcschmit, Adrian Tse, Joey Rubas
  * @version 1 June 2017
  */
 public class Square
