@@ -2,7 +2,7 @@
 /**
  * Write a description of class MazeSolverStack here.
  *
- * @author (your name)
+ * @Adrian Tse, Joey Rubas
  * @version (a version number or a date)
  */
 public class MazeSolverStack extends MazeSolver
