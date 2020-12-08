@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Stores the logical layout of a maze.
  *
- * @author gcschmit
+ * @author gcschmit, Adrian Tse, Joey Rubas
  * @version 1 June 2017
  */
 public class Maze
