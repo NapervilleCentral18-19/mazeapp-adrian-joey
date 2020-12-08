@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Abstract class MazeSolver - write a description of the class here
  *
- * @author gcschmit
+ * @author gcschmit, Adrian Tse, Joey Rubas
  * @version 2 June 2017
  */
 public abstract class MazeSolver
